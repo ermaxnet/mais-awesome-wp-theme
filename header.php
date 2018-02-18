@@ -8,3 +8,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+    <div class="site">
+        <header class="header">
+            <?php get_template_part( 'template-parts/header/header', 'media' ); ?>
+        </header>

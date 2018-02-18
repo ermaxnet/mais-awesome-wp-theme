@@ -1,0 +1,23 @@
+@include global-reset;
+@include nested-reset;
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    min-height: 100%;
+    color: $text-color;
+}
+
+*,
+*::after, *::before {
+    @include box-sizing(border-box);
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
