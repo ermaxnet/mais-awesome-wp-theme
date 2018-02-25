@@ -1,25 +1,27 @@
 <?php get_header(); ?>
 
-<main>
+<main class="page-content">
 
-    <section>
-    
-        <div>
-        
-            <?php
-            
-                $catrgories = get_categories( array(
-                    'orderby' => 'count',
-                    'order' => 'DESC',
-                    'hide_empty' => 0,
-                    'number' => 12
-                ) );
+    <section class="categories">
 
-                foreach ( $catrgories as $category ) : 
-            ?>
+        <h1 class="section-header">
+            <span><?php echo __( 'Категории', 'mais-awesome-theme' ) ?></span>
+        </h1>
 
-            <div data-category-id="<?php echo $category->term_id; ?>"> 
-                <figure class="mais-tooltip"
+        <?php
+                
+            $catrgories = get_categories( array(
+                'orderby' => 'count',
+                'order' => 'DESC',
+                'hide_empty' => 0,
+                'number' => 12
+            ) );
+
+            foreach ( $catrgories as $category ) : 
+        ?>
+
+            <div class="category category-preview" data-category-id="<?php echo $category->term_id; ?>"> 
+                <figure class="category-image mais-tooltip"
                     data-name="<?php echo $category->name; ?>"
                     data-description="<?php echo $category->description; ?>"
                     data-posts-count="<?php echo $category->count ?>"
@@ -35,10 +37,7 @@
                 </figure>
             </div>
 
-            <?php endforeach; ?>
-
-        </div>
-    
+        <?php endforeach; ?>
     </section>
 
     <?php get_template_part( 'template-parts/content/content', 'posts' ) ?>

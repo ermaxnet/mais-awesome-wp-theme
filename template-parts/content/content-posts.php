@@ -1,5 +1,9 @@
 
-<section class="posts-container">
+<section class="posts">
+
+    <h1 class="section-header">
+        <span><?php echo __( 'Публикации', 'mais-awesome-theme' ) ?></span>
+    </h1>
 
     <?php 
         $posts = array(

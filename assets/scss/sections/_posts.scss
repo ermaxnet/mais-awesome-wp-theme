@@ -1,0 +1,17 @@
+.posts {
+    padding: 72px;
+    border-top: 7px solid $posts-color;
+    display: flex;
+
+    .section-header {
+        flex: 2 100%;
+
+        &::before {
+            background-color: white;
+        }
+
+        span {
+            border-color: $posts-color;
+        }
+    }
+}

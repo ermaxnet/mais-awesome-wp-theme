@@ -1,0 +1,66 @@
+.header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    &-media {
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+
+        &__image {
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+
+    &-author {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        z-index: 100;
+        top: 50%;
+        text-align: center;
+        @include translateY(-50%);
+
+        &__avatar {
+            margin-bottom: 64px;
+            img {
+                border-radius: 50%;
+                @include box-shadow(
+                    0 1px 0 #c9c9c9,
+                    0 2px 0 #bbb,
+                    0 3px 0 #b9b9b9
+                );
+            }
+        }
+
+        &__name {
+            @include header(48px, 64px);
+            margin-bottom: 10px;
+            @include text-shadow(
+                1px 0 0 #c9c9c9,
+                2px 0 0 #bbb,
+                3px 0 0 #b9b9b9
+            );
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        &__about {
+            @include header(22px, 26px);
+            text-transform: lowercase;
+
+            span {
+                background-color: white;
+                padding: 5px 9px;
+                border-radius: 4px;
+            }
+        }
+    }
+
+}

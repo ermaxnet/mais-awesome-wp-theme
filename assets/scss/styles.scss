@@ -1,8 +1,14 @@
 @import "compass/reset/utilities";
 @import "compass/css3/box-sizing";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
 
 @import "common/variables";
 @import "common/reset";
 
 @import "common/container";
-@import "common/header";
+
+@import "sections/header";
+@import "sections/categories";
+@import "sections/posts";

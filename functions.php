@@ -5,7 +5,7 @@
     function mais_custom_header_setup() {
 
         add_theme_support( 'custom-header', apply_filters( 'mais_custom_header', array(
-            'default-image' => get_parent_theme_file_uri( '/assets/images/header-background.jpg' ),
+            'default-image' => get_parent_theme_file_uri( '/assets/images/header-background.png' ),
             'width' => 3000,
             'height' => 2000,
             'flex-height' => true
@@ -14,8 +14,8 @@
         register_default_headers( array(
 
             'default-image' => array(
-                'url' => '%s/assets/images/header-background.jpg',
-                'thumbnail_url' => '%s/assets/images/header-background.jpg',
+                'url' => '%s/assets/images/header-background.png',
+                'thumbnail_url' => '%s/assets/images/header-background.png',
                 'description' => __( 'Default Headere Image', 'maisawesomeblog' )
             )
 
@@ -49,5 +49,39 @@
 
     }
     add_action( 'wp_enqueue_scripts', 'mais_theme_assets' );
+
+    function mais_customize_register( $wp_customize ) {
+        
+        $wp_customize->add_section( 'theme_options', array(
+            'title'    => __( 'Theme Options', 'mais-awesome-theme' ),
+            'priority' => 130
+        ) );
+
+        $wp_customize->add_setting( 'author_email', array(
+            'default' => '',
+            'transport' => 'postMessage'
+        ) );
+
+        $wp_customize->add_control( 'author_email', array(
+            'label' => __( 'Author Email', 'mais-awesome-theme' ),
+            'section' => 'theme_options',
+            'type' => 'text',
+            'description' => __( 'Задайте email автора блога для получения изображения.', 'mais-awesome-theme' )
+        ) );
+
+        $wp_customize->add_setting( 'author_name', array(
+            'default' => '',
+            'transport' => 'postMessage'
+        ) );
+
+        $wp_customize->add_control( 'author_name', array(
+            'label' => __( 'Author Name', 'mais-awesome-theme' ),
+            'section' => 'theme_options',
+            'type' => 'text',
+            'description' => __( 'Укажите краткое описание автора и его имя.', 'mais-awesome-theme' )
+        ) );
+
+    }
+    add_action( 'customize_register', 'mais_customize_register' );
 
 ?>
