@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/* Animation
+*/
 /* line 5, ../../../../../../../../../../.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/gems/compass-core-1.1.0.alpha.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -183,6 +186,53 @@ body {
 .page-content {
   position: relative; }
 
+/*
+<nav class="navigation pagination" role="navigation">
+		<h2 class="screen-reader-text">Навигация по записям</h2>
+		<div class="nav-links"><span aria-current="page" class="page-numbers current">1</span>
+<a class="page-numbers" href="http://mais.dev.cc/page/2/">2</a>
+<a class="next page-numbers" href="http://mais.dev.cc/page/2/">Вперед</a></div>
+	</nav>
+*/
+/* line 21, ../scss/common/_container.scss */
+.screen-reader-text {
+  display: none; }
+
+/* line 25, ../scss/common/_container.scss */
+.pagination {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto; }
+  /* line 30, ../scss/common/_container.scss */
+  .pagination .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    /* line 35, ../scss/common/_container.scss */
+    .pagination .nav-links .page-numbers {
+      display: inline-block;
+      flex: 1 40px;
+      height: 40px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 40px;
+      flex-grow: 0;
+      color: rgba(35, 35, 26, 0.5); }
+      /* line 46, ../scss/common/_container.scss */
+      .pagination .nav-links .page-numbers.current {
+        color: #FF6F59; }
+    /* line 51, ../scss/common/_container.scss */
+    .pagination .nav-links .next {
+      width: auto;
+      margin-left: auto;
+      padding-right: 13px; }
+    /* line 57, ../scss/common/_container.scss */
+    .pagination .nav-links .prev {
+      width: auto;
+      margin-right: auto;
+      padding-left: 13px; }
+
 /* line 1, ../scss/sections/_header.scss */
 .header {
   position: relative;
@@ -277,6 +327,7 @@ body {
       /* line 33, ../scss/sections/_categories.scss */
       .categories .category-image img {
         position: absolute;
+        min-width: 100%;
         top: 50%;
         left: 50%;
         -moz-transform: translate(-50%, -50%);
@@ -285,17 +336,330 @@ body {
         transform: translate(-50%, -50%);
         filter: grayscale(1); }
 
-/* line 1, ../scss/sections/_posts.scss */
+/* line 41, ../scss/sections/_posts.scss */
 .posts {
   padding: 72px;
-  border-top: 7px solid #4F7CAC;
-  display: flex; }
-  /* line 6, ../scss/sections/_posts.scss */
-  .posts .section-header {
-    flex: 2 100%; }
-    /* line 9, ../scss/sections/_posts.scss */
-    .posts .section-header::before {
-      background-color: white; }
-    /* line 13, ../scss/sections/_posts.scss */
-    .posts .section-header span {
-      border-color: #4F7CAC; }
+  border-top: 7px solid #4F7CAC; }
+  /* line 47, ../scss/sections/_posts.scss */
+  .posts .section-header::before {
+    background-color: white; }
+  /* line 51, ../scss/sections/_posts.scss */
+  .posts .section-header span {
+    border-color: #4F7CAC; }
+  @media screen and (min-width: 300px) {
+    /* line 57, ../scss/sections/_posts.scss */
+    .posts-grid {
+      display: grid;
+      justify-content: center;
+      grid-gap: 25px;
+      margin: 120px 0;
+      grid-template-columns: repeat(1, 300px); } }
+  @media screen and (min-width: 625px) {
+    /* line 57, ../scss/sections/_posts.scss */
+    .posts-grid {
+      margin: 70px 0;
+      grid-template-columns: repeat(2, 300px); } }
+  @media screen and (min-width: 950px) {
+    /* line 57, ../scss/sections/_posts.scss */
+    .posts-grid {
+      margin: 50px 0;
+      grid-template-columns: repeat(3, 300px); } }
+
+/* line 79, ../scss/sections/_posts.scss */
+.post {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden; }
+  /* line 84, ../scss/sections/_posts.scss */
+  .post.category-js {
+    border-color: #F8E500; }
+  /* line 88, ../scss/sections/_posts.scss */
+  .post.category-css-by-the-fireplaces {
+    border-color: #006EC0; }
+  /* line 92, ../scss/sections/_posts.scss */
+  .post__image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden; }
+    /* line 98, ../scss/sections/_posts.scss */
+    .post__image img {
+      position: absolute;
+      min-width: 100%;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  /* line 108, ../scss/sections/_posts.scss */
+  .post .flex-container {
+    height: calc(100% - 200px);
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px; }
+  /* line 115, ../scss/sections/_posts.scss */
+  .post__date {
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(35, 35, 26, 0.5);
+    text-align: center; }
+    /* line 121, ../scss/sections/_posts.scss */
+    .post__date .red-line {
+      display: inline-block;
+      height: 25px;
+      line-height: 1;
+      vertical-align: middle; }
+      /* line 127, ../scss/sections/_posts.scss */
+      .post__date .red-line svg {
+        display: block;
+        width: 25px;
+        height: 25px;
+        fill: rgba(35, 35, 26, 0.5); }
+      /* line 133, ../scss/sections/_posts.scss */
+      .post__date .red-line:nth-of-type(1) {
+        margin-right: 14px; }
+      /* line 137, ../scss/sections/_posts.scss */
+      .post__date .red-line:nth-of-type(2) {
+        margin-left: 14px;
+        -moz-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        transform: scale(-1, 1); }
+  /* line 144, ../scss/sections/_posts.scss */
+  .post__title {
+    padding: 20px 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: #23231A;
+    text-align: center; }
+  /* line 154, ../scss/sections/_posts.scss */
+  .post__tags {
+    margin-top: auto; }
+    /* line 157, ../scss/sections/_posts.scss */
+    .post__tags-list .post__tag {
+      display: inline-block;
+      border-radius: 100px;
+      margin: 0 0 0 7.5px; }
+      /* line 162, ../scss/sections/_posts.scss */
+      .post__tags-list .post__tag a {
+        display: block;
+        width: 100%;
+        padding: 0 9px;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 22px;
+        text-transform: uppercase; }
+
+/* line 178, ../scss/sections/_posts.scss */
+.post__tag.category_css {
+  background-color: #006EC0;
+  border: 1px solid #006EC0;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_css, .post__tag.category_css > a {
+    color: #ffffff; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_css:hover, .category-state_hover.post__tag.category_css {
+    background-color: #00518d; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_css {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_css, .transparent.post__tag.category_css > a {
+      color: #006EC0; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_css:hover, .transparent.category-state_hover.post__tag.category_css {
+      background-color: #006EC0; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_css:hover, .transparent.post__tag.category_css:hover > a, .transparent.category-state_hover.post__tag.category_css, .transparent.category-state_hover.post__tag.category_css > a {
+        color: #ffffff; }
+/* line 182, ../scss/sections/_posts.scss */
+.post__tag.category_lyrics {
+  background-color: #00796B;
+  border: 1px solid #00796B;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_lyrics, .post__tag.category_lyrics > a {
+    color: #ffffff; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_lyrics:hover, .category-state_hover.post__tag.category_lyrics {
+    background-color: #00463e; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_lyrics {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_lyrics, .transparent.post__tag.category_lyrics > a {
+      color: #00796B; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_lyrics:hover, .transparent.category-state_hover.post__tag.category_lyrics {
+      background-color: #00796B; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_lyrics:hover, .transparent.post__tag.category_lyrics:hover > a, .transparent.category-state_hover.post__tag.category_lyrics, .transparent.category-state_hover.post__tag.category_lyrics > a {
+        color: #ffffff; }
+/* line 186, ../scss/sections/_posts.scss */
+.post__tag.category_codepen {
+  background-color: #191919;
+  border: 1px solid #191919;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_codepen, .post__tag.category_codepen > a {
+    color: #ffffff; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_codepen:hover, .category-state_hover.post__tag.category_codepen {
+    background-color: black; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_codepen {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_codepen, .transparent.post__tag.category_codepen > a {
+      color: #191919; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_codepen:hover, .transparent.category-state_hover.post__tag.category_codepen {
+      background-color: #191919; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_codepen:hover, .transparent.post__tag.category_codepen:hover > a, .transparent.category-state_hover.post__tag.category_codepen, .transparent.category-state_hover.post__tag.category_codepen > a {
+        color: #ffffff; }
+/* line 190, ../scss/sections/_posts.scss */
+.post__tag.category_js {
+  background-color: #F8E500;
+  border: 1px solid #F8E500;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_js, .post__tag.category_js > a {
+    color: #000000; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_js:hover, .category-state_hover.post__tag.category_js {
+    background-color: #c5b600; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_js {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_js, .transparent.post__tag.category_js > a {
+      color: #F8E500; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_js:hover, .transparent.category-state_hover.post__tag.category_js {
+      background-color: #F8E500; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_js:hover, .transparent.post__tag.category_js:hover > a, .transparent.category-state_hover.post__tag.category_js, .transparent.category-state_hover.post__tag.category_js > a {
+        color: #000000; }
+/* line 194, ../scss/sections/_posts.scss */
+.post__tag.category_asp-net {
+  background-color: #870D9D;
+  border: 1px solid #870D9D;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_asp-net, .post__tag.category_asp-net > a {
+    color: #ffffff; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_asp-net:hover, .category-state_hover.post__tag.category_asp-net {
+    background-color: #5f096e; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_asp-net {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_asp-net, .transparent.post__tag.category_asp-net > a {
+      color: #870D9D; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_asp-net:hover, .transparent.category-state_hover.post__tag.category_asp-net {
+      background-color: #870D9D; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_asp-net:hover, .transparent.post__tag.category_asp-net:hover > a, .transparent.category-state_hover.post__tag.category_asp-net, .transparent.category-state_hover.post__tag.category_asp-net > a {
+        color: #ffffff; }
+/* line 198, ../scss/sections/_posts.scss */
+.post__tag.category_c {
+  background-color: #00A502;
+  border: 1px solid #00A502;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_c, .post__tag.category_c > a {
+    color: #ffffff; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_c:hover, .category-state_hover.post__tag.category_c {
+    background-color: #007201; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_c {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_c, .transparent.post__tag.category_c > a {
+      color: #00A502; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_c:hover, .transparent.category-state_hover.post__tag.category_c {
+      background-color: #00A502; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_c:hover, .transparent.post__tag.category_c:hover > a, .transparent.category-state_hover.post__tag.category_c, .transparent.category-state_hover.post__tag.category_c > a {
+        color: #ffffff; }
+/* line 202, ../scss/sections/_posts.scss */
+.post__tag.category_web {
+  background-color: #00C9CF;
+  border: 1px solid #00C9CF;
+  -moz-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+  /* line 10, ../scss/sections/_posts.scss */
+  .post__tag.category_web, .post__tag.category_web > a {
+    color: #000000; }
+  /* line 15, ../scss/sections/_posts.scss */
+  .post__tag.category_web:hover, .category-state_hover.post__tag.category_web {
+    background-color: #00979c; }
+  /* line 20, ../scss/sections/_posts.scss */
+  .transparent.post__tag.category_web {
+    background-color: transparent;
+    -moz-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: color 250ms cubic-bezier(0.25, 0.8, 0.25, 1), background-color 250ms cubic-bezier(0.25, 0.8, 0.25, 1); }
+    /* line 24, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_web, .transparent.post__tag.category_web > a {
+      color: #00C9CF; }
+    /* line 29, ../scss/sections/_posts.scss */
+    .transparent.post__tag.category_web:hover, .transparent.category-state_hover.post__tag.category_web {
+      background-color: #00C9CF; }
+      /* line 33, ../scss/sections/_posts.scss */
+      .transparent.post__tag.category_web:hover, .transparent.post__tag.category_web:hover > a, .transparent.category-state_hover.post__tag.category_web, .transparent.category-state_hover.post__tag.category_web > a {
+        color: #000000; }

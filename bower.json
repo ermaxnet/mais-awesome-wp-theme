@@ -1,0 +1,20 @@
+{
+  "name": "mais-awesome-theme",
+  "homepage": "https://github.com/ermaxnet/mais-awesome-wp-theme",
+  "authors": [
+    "Max Eremin eremin_my@outlook.com"
+  ],
+  "description": "The Wordperss theme for personal blog",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "^3.0.3"
+  }
+}

@@ -1,7 +1,8 @@
-
-// #3C91E6 #444554 #23231A #FF6F59 #254441
+$black: #000000;
+$white: #ffffff;
 
 $text-color: #23231A;
+$text-color-2: transparentize($text-color, .5);
 $link-hover-color: #FF6F59;
 $header-color: #646464;
 
@@ -9,3 +10,61 @@ $background-color: #E0E2DB;
 
 $category-color: #EC7357;
 $posts-color: #4F7CAC;
+
+/* Animation
+*/
+$delay: 250ms;
+$style: cubic-bezier(.25, .8, .25, 1);
+
+$categories: (
+
+    /* CSS */
+    css: (
+        background: #006EC0,
+        color: $white,
+        border: #006EC0
+    ),
+
+    /* Lyrics */
+    lyrics: (
+        background: #00796B,
+        color: $white,
+        border: #00796B
+    ),
+
+    /* CodePen */
+    codepen: (
+        background: #191919,
+        color: $white,
+        border: #191919
+    ),
+
+    /* JS */
+    js: (
+        background: #F8E500,
+        color: $black,
+        border: #F8E500
+    ),
+
+    /* ASP.NET */
+    asp: (
+        background: #870D9D,
+        color: $white,
+        border: #870D9D
+    ),
+
+    /* C */
+    c: (
+        background: #00A502,
+        color: $white,
+        border: #00A502
+    ),
+
+    /* WEB */
+    web: (
+        background: #00C9CF,
+        color: $black,
+        border: #00C9CF
+    )
+
+);

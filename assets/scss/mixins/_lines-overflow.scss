@@ -1,0 +1,13 @@
+@mixin lines-overflow($font-size, $line-height, $lines) {
+    display: block;
+    display: -webkit-box;
+    @if unitless($line-height) {
+        height: $font-size * $line-height * $lines;
+    } @else {
+        height: $line-height * $lines;
+    }
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -9,3 +9,55 @@
 .page-content {
     position: relative;
 }
+
+/*
+<nav class="navigation pagination" role="navigation">
+		<h2 class="screen-reader-text">Навигация по записям</h2>
+		<div class="nav-links"><span aria-current="page" class="page-numbers current">1</span>
+<a class="page-numbers" href="http://mais.dev.cc/page/2/">2</a>
+<a class="next page-numbers" href="http://mais.dev.cc/page/2/">Вперед</a></div>
+	</nav>
+*/
+.screen-reader-text {
+    display: none;
+}
+
+.pagination {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .page-numbers {
+            display: inline-block;
+            flex: 1 40px;
+            height: 40px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 40px;
+            flex-grow: 0;
+            color: $text-color-2;
+
+            &.current {
+                color: $link-hover-color;
+            }
+        }
+
+        .next {
+            width: auto;
+            margin-left: auto;
+            padding-right: 13px;
+        }
+
+        .prev {
+            width: auto;
+            margin-right: auto;
+            padding-left: 13px;
+        }
+    }
+}

@@ -1,10 +1,48 @@
+
+@mixin apply-category-styles($options) {
+    $bacground: map-get($options, "background");
+    $border: map-get($options, "border");
+
+    background-color: $bacground;
+    border: 1px solid $border;
+    @include transition(background-color $delay $style);
+
+    &,
+    & > a {
+        color: map-get($options, "color");
+    }
+
+    &:hover,
+    &.category-state_hover {
+        background-color: darken($bacground, 10%);
+    }
+
+    &.transparent {
+        background-color: transparent;
+        @include transition(color $delay $style, background-color $delay $style);
+        
+        &,
+        & > a {
+            color: map-get($options, "background");
+        }
+
+        &:hover,
+        &.category-state_hover {
+            background-color: $bacground;
+            
+            &,
+            & > a {
+                color: map-get($options, "color");
+            }
+        }
+    }
+}
+
 .posts {
     padding: 72px;
     border-top: 7px solid $posts-color;
-    display: flex;
 
     .section-header {
-        flex: 2 100%;
 
         &::before {
             background-color: white;
@@ -13,5 +51,187 @@
         span {
             border-color: $posts-color;
         }
+
     }
+
+    &-grid {
+        @media screen and (min-width: 300px) {
+            display: grid;
+            justify-content: center;
+            grid-gap: 25px;
+            margin: 120px 0;
+            grid-template-columns: repeat(1, 300px);
+        }
+        
+        @media screen and (min-width: 625px) {
+            margin: 70px 0;
+            grid-template-columns: repeat(2, 300px);
+        }
+
+        @media screen and (min-width: 950px) {
+            margin: 50px 0;
+            grid-template-columns: repeat(3, 300px);
+        }
+    }
+    
+}
+
+.post {
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &.category-js {
+        border-color: map-get(map-get($categories, js), "border");
+    }
+
+    &.category-css-by-the-fireplaces {
+        border-color: map-get(map-get($categories, css), "border");
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            min-width: 100%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+        }
+    }
+
+    .flex-container {
+        height: calc(100% - 200px);
+        display: flex;
+        flex-direction: column;
+        padding: 15px 15px;
+    }
+
+    &__date {
+        font-weight: 400;
+        font-size: 14px;
+        color: $text-color-2;
+        text-align: center;
+
+        .red-line {
+            display: inline-block;
+            height: 25px;
+            line-height: 1;
+            vertical-align: middle;
+
+            svg {
+                display: block;
+                width: 25px; height: 25px;
+                fill: $text-color-2;
+            }
+
+            &:nth-of-type(1) {
+                margin-right: 14px;
+            }
+
+            &:nth-of-type(2) {
+                margin-left: 14px;
+                @include scale(-1, 1);
+            }
+        }
+    }
+
+    &__title {
+        padding: 20px 0;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        color: $text-color;
+        text-align: center;
+        //@include lines-overflow(20px, 72px, 1);
+    }
+
+    &__tags {
+        margin-top: auto;
+        &-list {
+            .post__tag {
+                display: inline-block;
+                border-radius: 100px;
+                margin: 0 0 0 7.5px;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    padding: 0 9px;
+                    font-weight: 700;
+                    font-size: 10px;
+                    line-height: 22px;
+                    //@include bold(10px, 21px);
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+%category {
+    &-css {
+        @include apply-category-styles(map-get($categories, css));
+    }
+
+    &-lyrics {
+        @include apply-category-styles(map-get($categories, lyrics));
+    }
+
+    &-codepen {
+        @include apply-category-styles(map-get($categories, codepen));
+    }
+
+    &-js {
+        @include apply-category-styles(map-get($categories, js));
+    }
+
+    &-asp-net {
+        @include apply-category-styles(map-get($categories, asp));
+    }
+
+    &-c {
+        @include apply-category-styles(map-get($categories, c));
+    }
+
+    &-web {
+        @include apply-category-styles(map-get($categories, web));
+    }
+}
+
+.post__tag {
+
+    &.category_css {
+        @extend %category-css;
+    }
+
+    &.category_js {
+        @extend %category-js;
+    }
+
+    &.category_lyrics {
+        @extend %category-lyrics;
+    }
+
+    &.category_codepen {
+        @extend %category-codepen;
+    }
+
+    &.category_asp-net {
+        @extend %category-asp-net;
+    }
+
+    &.category_c {
+        @extend %category-c;
+    }
+
+    &.category_web {
+        @extend %category-web;
+    }
+    
 }
